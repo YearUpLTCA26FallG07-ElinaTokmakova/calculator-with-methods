@@ -35,8 +35,7 @@ public class PayrollCalculator {
             overtimePay = payrollOvertime(employeeName, overtimeHours, hourlyPayRate);
 
             // method for total pay
-            totalPay = payrollTotal(overtimePay, regularPay);
-            System.out.println("The total gross pay for " + employeeName + " is $" + String.format("%.2f", totalPay));
+            totalPay = payrollTotal(employeeName, overtimePay, regularPay);
 
         } else {
             // method for first 40 hours
@@ -69,10 +68,11 @@ public class PayrollCalculator {
     }
 
     // method to add regular and overtime
-    public static double payrollTotal(double overtimePay, double regularPay) {
+    public static double payrollTotal(String employeeName, double overtimePay, double regularPay) {
 
         // sum up regular and overtime
         double totalPay = overtimePay + regularPay;
+        System.out.println("The total gross pay for " + employeeName + " is $" + String.format("%.2f", totalPay));
 
         // output
         return totalPay;
